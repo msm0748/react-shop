@@ -89,7 +89,18 @@ export const SearchInput = styled.input`
 export const SearchPanel = styled.div`
   position: absolute;
   width: 100%;
-  top: 100%;
+  top: calc(100% + 1px);
   border: 1px solid;
-  padding-left: 10px;
+
+  div {
+    padding: 5px 8px;
+
+    &:hover {
+      background-color: #eee;
+    }
+
+    a {
+      display: block;
+    }
+  }
 `;

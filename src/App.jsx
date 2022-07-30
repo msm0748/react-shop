@@ -3,11 +3,11 @@ import data from "./data.js";
 import Detail from "./pages/Detail.jsx";
 import Home from "./components/Home.jsx";
 import Header from "./components/Header.jsx";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import Cart from "./pages/Cart.jsx";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [shoes, setShoes] = useState(data);
-  const navigate = useNavigate();
   const onSortHandle = () => {
     setShoes((current) =>
       [...current].sort(function (a, b) {
@@ -25,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home shoes={shoes} />} />
         <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </>
   );

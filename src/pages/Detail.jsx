@@ -1,25 +1,78 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+import * as S from "../styles/Detail.style.js";
 
-function Detail({shoes}) {
-    let { id } = useParams();
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6">
-                    <img
-                        src={`https://codingapple1.github.io/shop/shoes${shoes[id].id + 1}.jpg`}
-                        width="100%"
-                    />
-                </div>
-                <div className="col-md-6">
-                    <h4 className="pt-5">{shoes[id].title}</h4>
-                    <p>{shoes[id].content}</p>
-                    <p>{shoes[id].price}</p>
-                    <button className="btn btn-danger">주문하기</button>
-                </div>
-            </div>
-        </div>
-    );
+function Detail({ shoes }) {
+  const [count, setCount] = useState(1);
+  const [disabled, setDisabled] = useState(true);
+  const { id } = useParams();
+
+  const onChange = (e) => {
+    setCount(e.target.value);
+    if (e.target.value < 1) {
+      setCount(1);
+    }
+  };
+
+  const onCountUp = () => {
+    setCount((current) => current + 1);
+  };
+
+  const onCountDown = () => {
+    setCount((current) => current - 1);
+  };
+
+  useEffect(() => {
+    if (count < 2) {
+      setDisabled(true);
+    } else {
+      setDisabled(false);
+    }
+  }, [count]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="wrap">
+      <S.DetailWrap>
+        <S.DetailHead>
+          <S.ImgWrap>
+            <img src={shoes[id].imgSrc} alt={shoes[id].title} />
+          </S.ImgWrap>
+          <S.GoodsTit>
+            <h4 className="pt-5">{shoes[id].title}</h4>
+            <p>{(shoes[id].price * count).toLocaleString()}원</p>
+            <S.ButtonWrap>
+              <S.CountForm>
+                <S.Input value={count} onChange={onChange} />
+                <S.CountButtonWrap>
+                  <S.CountButton onClick={onCountUp}>
+                    더하기
+                    <AiFillCaretUp size="12px" />
+                  </S.CountButton>
+                  <S.CountButton onClick={onCountDown} disabled={disabled}>
+                    빼기
+                    <AiFillCaretDown size="12px" />
+                  </S.CountButton>
+                </S.CountButtonWrap>
+              </S.CountForm>
+
+              <S.Button>장바구니</S.Button>
+              <S.Button bcColor="#346aff" color="#fff">
+                주문하기
+              </S.Button>
+            </S.ButtonWrap>
+          </S.GoodsTit>
+        </S.DetailHead>
+        <S.DetailBody>
+          <p>{shoes[id].content}</p>
+        </S.DetailBody>
+      </S.DetailWrap>
+    </div>
+  );
 }
 
 export default Detail;

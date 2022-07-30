@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import * as S from "./Card.style";
+import * as S from "../styles/Card.style.js";
 
 function Card({ shoes, i }) {
   return (
