@@ -11,4 +11,8 @@ export const Table = styled.table`
     border-bottom: 1px solid;
     padding: 10px;
   }
+
+  td {
+    text-align: center;
+  }
 `;

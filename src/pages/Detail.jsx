@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartSlice.js";
 import * as S from "../styles/Detail.style.js";
 
 function Detail({ shoes }) {
   const [count, setCount] = useState(1);
   const [disabled, setDisabled] = useState(true);
   const { id } = useParams();
+  const currentShoes = shoes[id];
+
+  const dispatch = useDispatch();
 
   const onChange = (e) => {
     setCount(e.target.value);
@@ -34,6 +39,7 @@ function Detail({ shoes }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  console.log(currentShoes);
 
   return (
     <div className="wrap">
@@ -60,7 +66,13 @@ function Detail({ shoes }) {
                 </S.CountButtonWrap>
               </S.CountForm>
 
-              <S.Button>장바구니</S.Button>
+              <S.Button
+                onClick={() => {
+                  dispatch(addItem({ ...currentShoes, count: count }));
+                }}
+              >
+                장바구니
+              </S.Button>
               <S.Button bcColor="#346aff" color="#fff">
                 주문하기
               </S.Button>
