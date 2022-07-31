@@ -8,7 +8,13 @@ const cart = createSlice({
       let num = state.findIndex((a) => {
         return a.id === action.payload;
       });
-      state[num].count += +1;
+      state[num].count += 1;
+    },
+    minusCount(state, action) {
+      let num = state.findIndex((a) => {
+        return a.id === action.payload;
+      });
+      state[num].count -= 1;
     },
     addItem(state, action) {
       let num = state.findIndex((a) => {
@@ -23,5 +29,5 @@ const cart = createSlice({
   },
 });
 
-export const { addCount, addItem } = cart.actions;
+export const { addCount, minusCount, addItem } = cart.actions;
 export default cart;
