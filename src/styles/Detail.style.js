@@ -11,6 +11,10 @@ export const DetailHead = styled.div`
 
 export const ImgWrap = styled.div`
   flex: 1;
+
+  img {
+    max-width: none;
+  }
 `;
 
 export const ButtonWrap = styled.div`

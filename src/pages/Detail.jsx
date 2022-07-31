@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { addItem } from "../store/cartSlice.js";
+import ReactImageMagnify from "react-image-magnify";
 import * as S from "../styles/Detail.style.js";
 
 function Detail({ clothes }) {
@@ -45,7 +46,24 @@ function Detail({ clothes }) {
       <S.DetailWrap>
         <S.DetailHead>
           <S.ImgWrap>
-            <img src={currentClothes.imgSrc} alt={currentClothes.title} />
+            <ReactImageMagnify
+              style={{
+                cursor: "default",
+              }}
+              {...{
+                smallImage: {
+                  alt: currentClothes.title,
+                  isFluidWidth: true,
+                  src: currentClothes.imgSrc,
+                },
+                largeImage: {
+                  src: currentClothes.imgSrc,
+                  width: 1200,
+                  height: 1200,
+                },
+              }}
+            />
+            {/* <img src={currentClothes.imgSrc} alt={currentClothes.title} /> */}
           </S.ImgWrap>
           <S.GoodsTit>
             <h4 className="pt-5">{currentClothes.title}</h4>
