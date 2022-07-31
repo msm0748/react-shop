@@ -14,10 +14,10 @@ const cart = createSlice({
       let num = state.findIndex((a) => {
         return a.id === action.payload.id;
       });
-      if (num) {
-        state.push(action.payload);
-      } else {
+      if (num !== -1) {
         state[num].count += action.payload.count;
+      } else {
+        state.push(action.payload);
       }
     },
   },

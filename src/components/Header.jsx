@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import logoImg from "../assets/images/logo_img.png";
 import logo from "../assets/images/logo.jpg";
 import * as S from "../styles/Header.style.js";
@@ -6,10 +7,10 @@ import { getRegExp } from "korean-regexp";
 import { AiOutlineSearch, AiOutlineUser, AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const Header = ({ shoes }) => {
+const Header = ({ clothes }) => {
   const [text, setText] = useState("");
-  const goodsList = shoes;
-
+  const goodsList = clothes;
+  let cart = useSelector((state) => state.cart);
   const onChange = (e) => {
     setText(e.target.value);
   };
@@ -36,7 +37,9 @@ const Header = ({ shoes }) => {
       <div>
         <div className="wrap">
           <S.SearchWrap>
-            <img src={logo} alt="옷이 이쁘달" />
+            <Link to="/">
+              <img src={logo} alt="옷이 이쁘달" />
+            </Link>
             <S.SearchBox>
               <form action="">
                 <S.SearchInput onChange={onChange} value={text} />
@@ -71,6 +74,8 @@ const Header = ({ shoes }) => {
               <li className="Cart">
                 <Link to="/cart">
                   <i>
+                    {cart.length > 0 && <S.HeaderCartCount>{cart.length}</S.HeaderCartCount>}
+
                     <AiOutlineShoppingCart size="28px" />
                   </i>
                   장바구니

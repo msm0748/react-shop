@@ -5,11 +5,11 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../store/cartSlice.js";
 import * as S from "../styles/Detail.style.js";
 
-function Detail({ shoes }) {
+function Detail({ clothes }) {
   const [count, setCount] = useState(1);
   const [disabled, setDisabled] = useState(true);
   const { id } = useParams();
-  const currentShoes = shoes[id];
+  const currentClothes = clothes[id];
 
   const dispatch = useDispatch();
 
@@ -39,18 +39,17 @@ function Detail({ shoes }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  console.log(currentShoes);
 
   return (
     <div className="wrap">
       <S.DetailWrap>
         <S.DetailHead>
           <S.ImgWrap>
-            <img src={shoes[id].imgSrc} alt={shoes[id].title} />
+            <img src={currentClothes.imgSrc} alt={currentClothes.title} />
           </S.ImgWrap>
           <S.GoodsTit>
-            <h4 className="pt-5">{shoes[id].title}</h4>
-            <p>{(shoes[id].price * count).toLocaleString()}원</p>
+            <h4 className="pt-5">{currentClothes.title}</h4>
+            <p>{(currentClothes.price * count).toLocaleString()}원</p>
             <S.ButtonWrap>
               <S.CountForm>
                 <S.Input value={count} onChange={onChange} />
@@ -68,7 +67,7 @@ function Detail({ shoes }) {
 
               <S.Button
                 onClick={() => {
-                  dispatch(addItem({ ...currentShoes, count: count }));
+                  dispatch(addItem({ ...currentClothes, count: count }));
                 }}
               >
                 장바구니
@@ -80,7 +79,7 @@ function Detail({ shoes }) {
           </S.GoodsTit>
         </S.DetailHead>
         <S.DetailBody>
-          <p>{shoes[id].content}</p>
+          <p>{currentClothes.content}</p>
         </S.DetailBody>
       </S.DetailWrap>
     </div>

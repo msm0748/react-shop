@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
   i{
     display:block;
     text-align:center;
+    position:relative;
   }
 
   button{

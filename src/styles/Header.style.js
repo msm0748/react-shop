@@ -104,3 +104,16 @@ export const SearchPanel = styled.div`
     }
   }
 `;
+
+export const HeaderCartCount = styled.div`
+  position: absolute;
+  text-align: center;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  top: -5px;
+  right: 10px;
+  background: #346aff;
+  color: #fff;
+  font-size: 12px;
+`;
