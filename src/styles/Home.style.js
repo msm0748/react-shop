@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Button = styled.button`
+  display: block;
+  margin-left: auto;
+`;
+
 export const GoodsList = styled.ul`
   display: flex;
   flex-wrap: wrap;

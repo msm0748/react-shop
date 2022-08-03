@@ -88,6 +88,7 @@ export const SearchInput = styled.input`
 
 export const SearchPanel = styled.div`
   position: absolute;
+  background-color: #fff;
   width: 100%;
   top: calc(100% + 1px);
   border: 1px solid;
@@ -116,4 +117,19 @@ export const HeaderCartCount = styled.div`
   background: #346aff;
   color: #fff;
   font-size: 12px;
+`;
+
+export const Category = styled.div`
+  margin-top: 50px;
+  padding: 20px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+  ul {
+    display: flex;
+
+    li {
+      width: 200px;
+    }
+  }
 `;

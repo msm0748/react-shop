@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const DetailWrap = styled.div`
   width: 1020px;
   margin: auto;
@@ -27,20 +28,6 @@ export const CountForm = styled.div`
   display: flex;
 `;
 
-export const Input = styled.input`
-  width: 60px;
-  height: 40px;
-  text-align: center;
-`;
-
-export const CountButtonWrap = styled.div`
-  width: 20px;
-`;
-
-export const CountButton = styled.button`
-  font-size: 0;
-  width: 100%;
-`;
 
 export const Button = styled.button`
   display: block;
@@ -64,3 +51,38 @@ export const GoodsTit = styled.div`
 export const DetailBody = styled.div`
   margin-top: 40px;
 `;
+
+export const CountButtonWrap = styled.div`
+  width: 20px;
+`;
+
+export const CountButton = styled.button`
+  font-size: 0;
+  width: 100%;
+`;
+
+export const CountInput = styled.input`
+  width: 60px;
+  height: 40px;
+  text-align: center;
+`;
+
+
+// export const Alert = styled.div`
+//   position: fixed;
+//   top: 0;
+//   z-index: 999;
+//   animation-duration: 3s;
+//   animation-name: slidein;
+//   @keyframes slidein {
+//     from {
+//       margin-left: 100%;
+//       width: 300%
+//     }
+//
+//     to {
+//       margin-left: 0%;
+//       width: 100%;
+//     }
+//   }
+// `;
