@@ -36,11 +36,14 @@ const cart = createSlice({
       });
       state[num].checked = action.payload.checked;
     },
+	  paymentAllChecked(state, action){
+		state.map((item) => item.checked = action.payload)
+	  },
     paymentItem(sate, action) {
       return sate.filter((item) => !action.payload.some((i) => i.id === item.id));
     },
   },
 });
 
-export const { addCount, minusCount, addItem, deleteItem, paymentItem, paymentChecked } = cart.actions;
+export const { addCount, minusCount, addItem, deleteItem, paymentItem, paymentChecked, paymentAllChecked } = cart.actions;
 export default cart;

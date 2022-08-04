@@ -1,5 +1,6 @@
 import * as S from "../styles/Cart.style.js";
 import { useSelector, useDispatch } from "react-redux";
+import {Button} from "../styles/Detail.style.js";
 import { paymentItem } from "../store/cartSlice.js";
 
 function Payment() {
@@ -56,7 +57,7 @@ function Payment() {
         <input type="text" id="inputName" />
         <label htmlFor="inputCardName">카드번호 :</label>
         <input type="text" id="inputCardName" />
-        <button type="submit">결제</button>
+        <Button type="submit">결제</Button>
       </form>
     </div>
   );
