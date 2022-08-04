@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+import Button from "../components/template/Button.jsx";
 import { useDispatch } from "react-redux";
 import { addItem } from "../store/cartSlice.js";
 import ReactImageMagnify from "react-image-magnify";
@@ -97,17 +98,17 @@ function Detail({ clothes }) {
                 </S.CountButtonWrap>
               </S.CountForm>
 
-              <S.Button
+              <Button
                 onClick={() => {
 	                onAlert();
                   dispatch(addItem({ ...currentClothes, count: count, checked: true }));
                 }}
               >
                 장바구니
-              </S.Button>
-              <S.Button bcColor="#346aff" color="#fff">
+              </Button>
+              <Button bcColor="#346aff" color="#fff">
                 주문하기
-              </S.Button>
+              </Button>
             </S.ButtonWrap>
           </S.GoodsTit>
         </S.DetailHead>

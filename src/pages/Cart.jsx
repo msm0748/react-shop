@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as S from "../styles/Cart.style.js";
-import {Button} from "../styles/Detail.style.js";
+// import {Button} from "../styles/Detail.style.js";
+import Button from "../components/template/Button.jsx";
 import { useSelector, useDispatch } from "react-redux";
 import { addCount, minusCount, deleteItem, paymentChecked, paymentAllChecked } from "../store/cartSlice.js";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
@@ -106,7 +107,7 @@ function Cart() {
           원
         </div>
         <div>
-	        <Link to="/payment"><Button  bcColor="#346aff" color="#fff">결제하기</Button></Link>
+	        <Link to="/payment"><Button bcColor="#346aff" color="#fff">결제하기</Button></Link>
         </div>
       </div>
     </>

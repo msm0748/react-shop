@@ -1,6 +1,7 @@
 import * as S from "../styles/Cart.style.js";
 import { useSelector, useDispatch } from "react-redux";
-import {Button} from "../styles/Detail.style.js";
+import {Wrap} from "../styles/Template.style.js"
+import Button from "../components/template/Button.jsx";
 import { paymentItem } from "../store/cartSlice.js";
 
 function Payment() {
@@ -11,7 +12,7 @@ function Payment() {
     dispatch(paymentItem(cart));
   };
   return (
-    <div className="wrap">
+    <Wrap>
       <S.Table>
         <colgroup>
           <col style={{ width: "100px" }} />
@@ -57,9 +58,9 @@ function Payment() {
         <input type="text" id="inputName" />
         <label htmlFor="inputCardName">카드번호 :</label>
         <input type="text" id="inputCardName" />
-        <Button type="submit">결제</Button>
+        <Button type="submit" bcColor="#346aff" color="#fff">결제</Button>
       </form>
-    </div>
+    </Wrap>
   );
 }
 

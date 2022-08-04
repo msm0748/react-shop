@@ -18,7 +18,7 @@ const Header = ({clothes}) => {
 	return (
 			<S.Header>
 				<S.Gnb>
-					<div className="wrap">
+					<S.StyleWrap>
 						<S.Logo>
 							<Link to="/">
 								<img src={logoImg} alt="로고"/>
@@ -32,7 +32,7 @@ const Header = ({clothes}) => {
 								<Link to="/">회원가입</Link>
 							</li>
 						</ul>
-					</div>
+					</S.StyleWrap>
 				</S.Gnb>
 				<div>
 					<div className="wrap">

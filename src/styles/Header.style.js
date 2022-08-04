@@ -1,4 +1,10 @@
 import styled from "styled-components";
+import {Wrap} from "./Template.style.js";
+
+export const StyleWrap = styled(Wrap)`
+  display: flex;
+  justify-content: space-between;
+`
 
 export const Header = styled.header`
   margin-bottom: 80px;
@@ -10,11 +16,7 @@ export const Gnb = styled.div`
   margin-bottom: 50px;
   padding: 10px 0;
   background-color: #ff9dc5;
-
-  .wrap {
-    display: flex;
-    justify-content: space-between;
-  }
+  
 
   ul {
     display: flex;
