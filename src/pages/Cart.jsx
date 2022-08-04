@@ -9,16 +9,6 @@ function Cart() {
   let cart = useSelector((state) => state.cart);
   let dispatch = useDispatch();
   useEffect(() => {}, [cart]);
-  // const [checked, setChecked] = useState([]);
-  // const onclick = (e) => {
-  //
-  // 	dispatch(paymentChecked());
-  // 	// setChecked((current) => [...current, e]);
-  // 	// console.log(checked);
-  // }
-  // useEffect(() => {
-  // 	console.log("카트");
-  // }, [cart])
 
   return (
     <>
