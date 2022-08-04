@@ -22,6 +22,7 @@ const cart = createSlice({
       });
       if (num !== -1) {
         state[num].count += action.payload.count;
+		state[num].checked += action.payload.checked;
       } else {
         state.push(action.payload);
       }

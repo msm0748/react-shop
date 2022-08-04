@@ -68,21 +68,27 @@ export const CountInput = styled.input`
 `;
 
 
-// export const Alert = styled.div`
-//   position: fixed;
-//   top: 0;
-//   z-index: 999;
-//   animation-duration: 3s;
-//   animation-name: slidein;
-//   @keyframes slidein {
-//     from {
-//       margin-left: 100%;
-//       width: 300%
-//     }
-//
-//     to {
-//       margin-left: 0%;
-//       width: 100%;
-//     }
-//   }
-// `;
+export const Alert = styled.div`
+  position: fixed;
+  top: 0;
+  text-align:center;
+  color:white;
+  left: 0;
+  right: 0;
+  margin:0 auto;
+  padding:10px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+  width: 400px;
+  z-index: 999;
+  background-color:blue;
+  animation-fill-mode: forwards;
+  animation-duration: 1.5s;
+  animation-name: slidein;
+  @keyframes slidein {
+    0%{transform:translateY(-100%)}
+    50%{transform:translateY(0)}
+    70%{transform:translateY(0)}
+    100%{transform:translateY(-100%)}
+  }
+`;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addItem } from "../store/cartSlice.js";
 import ReactImageMagnify from "react-image-magnify";
 
@@ -10,19 +10,30 @@ import * as S from "../styles/Detail.style.js";
 function Detail({ clothes }) {
   const [count, setCount] = useState(1);
   const [disabled, setDisabled] = useState(true);
+  const [alert, setAlert] = useState(false);
   const { id } = useParams();
   const currentClothes = clothes.find((a) => a.id == id);
 
   const dispatch = useDispatch();
-  let cart = useSelector((state) => state.cart);
-  useEffect(() => {}, [cart]);
-
   const onChange = (e) => {
     setCount(e.target.value);
     if (e.target.value < 1) {
       setCount(1);
     }
   };
+
+  const onAlert = () => {
+	  setAlert(true);
+  }
+  useEffect(() => {
+	  const timeout = setTimeout(() => {
+		  setAlert(false);
+	  }, 1500)
+	  return () => {
+		  clearTimeout(timeout);
+	  }
+  }, [alert])
+
 
   const onCountUp = () => {
     setCount((current) => current + 1);
@@ -46,7 +57,7 @@ function Detail({ clothes }) {
 
   return (
     <div className="wrap">
-      {/*<S.Alert>안녕</S.Alert>*/}
+	    {alert && <S.Alert>장바구니에 추가되었습니다.</S.Alert>}
       <S.DetailWrap>
         <S.DetailHead>
           <S.ImgWrap>
@@ -88,6 +99,7 @@ function Detail({ clothes }) {
 
               <S.Button
                 onClick={() => {
+	                onAlert();
                   dispatch(addItem({ ...currentClothes, count: count, checked: true }));
                 }}
               >

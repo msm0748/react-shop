@@ -9,6 +9,7 @@ function Cart() {
   let cart = useSelector((state) => state.cart);
   let dispatch = useDispatch();
   useEffect(() => {}, [cart]);
+  console.log(cart);
 
   return (
     <>
